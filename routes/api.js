@@ -24,6 +24,12 @@ module.exports = function (app) {
     const returnUnit = convertHandler.getReturnUnit(initUnit);
     const string = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
 
-    res.json({ initNum, initUnit, returnNum, returnUnit, string });
+    res.json({
+      initNum,
+      initUnit,
+      returnNum,
+      returnUnit,
+      string,
+    });
   });
 };
