@@ -10,12 +10,15 @@ module.exports = function (app) {
     const initNum = convertHandler.getNum(input);
     const initUnit = convertHandler.getUnit(input);
 
+    // Check for invalid number and unit
     if (initNum === 'invalid number' && initUnit === 'invalid unit') {
       return res.json({ error: 'invalid number and unit' });
     }
+    // Check for invalid number
     if (initNum === 'invalid number') {
       return res.json({ error: 'invalid number' });
     }
+    // Check for invalid unit
     if (initUnit === 'invalid unit') {
       return res.json({ error: 'invalid unit' });
     }
@@ -24,12 +27,6 @@ module.exports = function (app) {
     const returnUnit = convertHandler.getReturnUnit(initUnit);
     const string = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
 
-    res.json({
-      initNum,
-      initUnit,
-      returnNum,
-      returnUnit,
-      string,
-    });
+    res.json({ initNum, initUnit, returnNum, returnUnit, string });
   });
 };
