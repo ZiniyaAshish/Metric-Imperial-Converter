@@ -29,9 +29,7 @@ suite('Unit Tests', function () {
     test('Default to 1 when no numerical input provided', function () {
       assert.equal(convertHandler.getNum('kg'), 1);
     });
-  });
 
-  suite('Function convertHandler.getUnit(input)', function () {
     test('Correctly read each valid input unit', function () {
       ['gal', 'L', 'mi', 'km', 'lbs', 'kg'].forEach((unit) =>
         assert.equal(convertHandler.getUnit(unit), unit)
@@ -41,9 +39,7 @@ suite('Unit Tests', function () {
     test('Return error for invalid input unit', function () {
       assert.equal(convertHandler.getUnit('32g'), 'invalid unit');
     });
-  });
 
-  suite('Function convertHandler.getReturnUnit(initUnit)', function () {
     test('Correctly return returnUnit for valid input unit', function () {
       const input = ['gal', 'L', 'mi', 'km', 'lbs', 'kg'];
       const expected = ['L', 'gal', 'km', 'mi', 'kg', 'lbs'];
@@ -55,9 +51,7 @@ suite('Unit Tests', function () {
     test('Return error for invalid return unit', function () {
       assert.equal(convertHandler.getReturnUnit('invalidUnit'), 'invalid unit');
     });
-  });
 
-  suite('Function convertHandler.spellOutUnit(unit)', function () {
     test('Correctly spell out each valid unit', function () {
       const input = ['gal', 'L', 'mi', 'km', 'lbs', 'kg'];
       const expected = [
@@ -72,9 +66,7 @@ suite('Unit Tests', function () {
         assert.equal(convertHandler.spellOutUnit(unit), expected[i]);
       });
     });
-  });
 
-  suite('Function convertHandler.convert(num, unit)', function () {
     test('Correctly convert gal to L', function () {
       assert.approximately(convertHandler.convert(1, 'gal'), 3.78541, 0.0001);
     });
